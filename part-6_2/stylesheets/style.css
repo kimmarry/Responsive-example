@@ -1,0 +1,120 @@
+* {margin:0; padding:0}
+
+.container { max-width: 1000px; margin:0 auto; border: 5px solid red;}
+.container::after { content:''; display:block; clear: both;}
+/* 네모를 플롯레프트를 하면서 넓이가 사라졌고, 넓이를 25%지정해준 후에 
+컨테이너가 네모의 크기를 인식할 수 있도록 얘를 입력해준다. */
+
+
+.nemo { height: 150px; /*background-color: blue;*/ float: left;
+    width:25%;} 
+
+.row {margin:0 -20px;} /*.inner 의 마진과 .row의 마진은 동일한 값이여야 한다. */
+
+.inner { 
+    margin:0 20px; /*디스플레이 블럭은 기본적으로 마진을 포함해서 100%넓이로 채운다. */
+    height: 100%; background-color: orange;}
+
+
+@media screen and (max-width:768px) {
+    .nemo {width: 50%;}
+}
+
+@media screen and (max-width:480px) {
+    .nemo {width: 100%;}
+}
+
+
+
+/* 실습 */
+/* .wrapper {max-width: 1000px; margin:0 auto; border: 10px solid red;}
+.wrapper:after {content: ''; display:block; clear: both;}
+
+.box { height: 150px; float: left;  width:20%; }
+.grid { margin: 0 -5px;}
+.in { margin:0 5px; height: 150px; }
+
+.b01 { width: 80%;background-color: palevioletred; } 
+.b02 { width: 20%;background-color: salmon;}
+
+.b03 {width: 40%; background-color: seagreen;}
+.b04 {width: 20%;background-color: royalblue;} 
+.b05 {width: 30%;background-color: slateblue;}
+.b06 {width: 10%;background-color: violet;}
+
+.b07 {width: 25%;background-color: lightsalmon;}
+.b08 {width: 25%;background-color: yellowgreen;}
+.b09 {width: 25%;background-color: darkorchid;}
+.b10 {width: 25%;background-color: teal;} */
+
+
+/* 반응형 예제  */
+body { background-color: #2f2f36;}
+.wrapper { margin:60px auto; padding:0 50px;}
+/* 마진은 위에를 떼놓으려고, 패딩은 반응형이 여유롭게 변하기 위해,  */
+
+.grid { background-color:#fff; padding:5px; }
+/* 바깥쪽 보더가 10이 아닌, 5일 때, 패딩 5를 더해주기 위해 */
+
+.grid::after { content: ''; display:block; clear: both; } 
+/* 그리드의 색상이 안 나타날때 애프터 코드  */
+
+.box { float: left; }
+
+.in { height: 150px; margin:5px; }
+ 
+
+.b01 {width: 80%; }
+.b02 {width: 20%; }
+
+.b03 {width: 40%; }
+.b04 {width: 20%; } 
+.b05 {width: 30%; }
+.b06 {width: 10%; }
+
+.b07 {width: 25%; }
+.b08 {width: 25%; }
+.b09 {width: 25%; }
+.b10 {width: 25%; }
+
+
+
+.b01 .in { background-color: palevioletred; } 
+.b02 .in { background-color: salmon;}
+
+.b03 .in { background-color: seagreen;}
+.b04 .in { background-color: royalblue;} 
+.b05 .in { background-color: slateblue;}
+.b06 .in { background-color: violet;}
+
+.b07 .in { background-color: lightsalmon;}
+.b08 .in { background-color: yellowgreen;}
+.b09 .in { background-color: darkorchid;}
+.b10 .in { background-color: teal;}
+
+/* 1200px보다 커졌을 때 보이는 화면. 1200이상이 되면 더이상 안 커지게 하고 싶을 때, */
+@media screen and (min-width:1200px) {
+    .wrapper {max-width: 1200px;}
+}
+
+
+/* 1024px보다 작아졌을 때, 보이는 화면 */
+@media screen and (max-width:1024px) {
+    .box { width:33.33%; }
+    .b01 { width:100%; }
+
+}
+
+@media screen and (max-width:768px) {
+    .wrapper { padding:0; margin:0; }
+    .box { width:50%; }
+    .b01,.b10 { width:100%; }
+}
+
+
+@media screen and (max-width:480px) {
+    .box { width:100%; }
+}
+
+
+
